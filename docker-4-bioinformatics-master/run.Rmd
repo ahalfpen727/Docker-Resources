@@ -1,0 +1,184 @@
+---
+title: "Running Docker Containers"
+author: "Mark Dunning"
+date: '`r format(Sys.time(), "Last modified: %d %b %Y")`'
+output: html_document
+---
+
+```{r include = FALSE}
+library(knitr)
+opts_chunk$set(comment = NA) # eliminates hashtag from R outputs
+```
+
+
+## The obligatory 'Hello World example'
+
+To run a docker container, we use the command `docker run` followed by the name of the container we want to run. You should already have a `ubuntu` container, so lets try and run it 
+
+```{r engine="bash"}
+docker run ubuntu
+```
+
+Nothing happens. In this case, we need to give a command that we want to execute, or run the container interactively. In the first case we will use the `echo` command to print the hello world message in the traditional fashion.
+
+```{bash}
+docker run ubuntu echo "Hello World"
+```
+
+or we could print the current date and time
+
+```{bash}
+docker run ubuntu date
+```
+
+In both cases, we ran a single command, printed the output and then exited. To launch an interactive session, we can change the arguments to the `run` command to attach standard input with `-i` (stdin) and allocate an output (tty) with `-t`. This will drop us into a terminal. You should notice that the the username changes to `root` and the machine name is the name of the container. You can exit the container using `exit`
+
+```{bash,eval=FALSE}
+docker run -i -t ubuntu /bin/bash
+```
+
+By default, we are running the *latest* version of Ubuntu. A very useful feature of Docker is that containers can be versioned, so we can always go back to a previous version. There is a file `/etc/lsb-release` that will tell us which version of Ubuntu is being run;
+
+
+```{bash}
+docker run ubuntu cat /etc/lsb-release
+```
+
+Alternative versions can be executed by specifying a *"tag"* after the container name. Ubuntu has tags that correspond to particular versions of the OS.
+
+```{bash}
+docker run ubuntu:14.04 cat /etc/lsb-release
+```
+
+
+## Running a structural variant caller (delly)
+
+Let's say that someone has released a new tool that sounds amazing. You are itching to try it out, but from past experience know how much of a pain it can be to install new software. Moreover, if you are experimenting with lots of different packages your `software` directory can get polluted with lots of tools that you run only once. This is a situation where docker can really help. 
+
+As an example, the author of `delly` (a tool for calling structural variants) has created a docker container that we can run. We have been previously running a `ubuntu` container, which is an official container in Docker. Typically docker containers are uploaded to the central `Dockerhub` repository and submitted under a particular username or project (`dellytools` in this case). It is common for a docker file to be under version control in github. 
+
+- [delly dockerhub entry](https://hub.docker.com/r/dellytools/delly/)
+- [delly github page](https://github.com/tobiasrausch/delly)
+
+The main program, `delly` can be run from the container to display help information;
+
+```{bash}
+docker run dellytools/delly delly
+```
+
+As before, we can run delly interactively with the `-it` argument. However, once we launch into docker we cannot automatically see the contents of our own hard drive. 
+
+```{bash eval=FALSE}
+docker run -it dellytools/delly /bin/bash
+```
+
+We can mount *volumes* from a particular location on our host drive onto the file system used in the docker container. Let's mount the `example/` directory of the course materials folder. Currently, this contains an [example `.bam` file](https://github.com/bioinformatics-core-shared-training/docker-4-bioinformatics/raw/master/example/test.bam) (mapped reads for a small region on chromosome 21) and [index](https://github.com/bioinformatics-core-shared-training/docker-4-bioinformatics/raw/master/example/test.bam.bai). The analysis we are going to do will also require a reference genome, which you can [download from UCSC](http://hgdownload.cse.ucsc.edu/goldenPath/hg19/chromosomes/chr21.fa.gz). 
+
+```{bash eval=FALSE}
+wget http://hgdownload.cse.ucsc.edu/goldenPath/hg19/chromosomes/chr21.fa.gz -P example/
+gunzip example/chr21.fa.gz
+```
+
+The `-v` argument is used to mount the volume in the form `-v FROM:TO`. In this example, we mount the `example/` sub-directory of the current working directory to a folder `/data/` inside the container. This needs to be the full path to the directory. We can use `pwd` command to expand the current working directory.
+
+***Note*** on Mac OSX, you may need to specify the directory that you want mounted in Docker. The default setup includes `/Users/` and `Volumes`, but if you want to use something else you'll need to add it to the list in ***Preferences***.
+
+```{bash eval=FALSE}
+docker run -ti -v `pwd`/example/:/data dellytools/delly /bin/bash
+```
+
+Once the container is launched, we can list the contents of `/data/`, which should hopefully should match the local contents of `example/`
+
+```{bash eval=FALSE}
+####Run this inside the delly container####
+ls -l /data/
+```
+
+
+```{bash echo=FALSE}
+docker run -v `pwd`/example:/data dellytools/delly ls -l /data/
+```
+
+Note that this directory doesn't already have to be present in the directory structure of the container
+
+```{bash echo=TRUE,eval=FALSE}
+docker run -v `pwd`/example:/mark dellytools/delly ls -l /mark/
+```
+
+Once the volume is mounted inside the container, anything written to `/data/` will be visible to the host directory. Exit the `delly` container (`CTRL + D`), and re-run with the following. A new file should be created in `example/` 
+
+```{bash}
+docker run -v `pwd`/example/:/data dellytools/delly touch /data/hello.txt
+ls example/
+```
+
+The actual command to run `delly` on our example data is as follows. When specifying the paths to the bam and reference file, we have to specify the paths as they appear inside the container, so `/data/` in this case.
+
+```{bash}
+docker run -v `pwd`/example/:/data dellytools/delly delly call -t DUP -o /data/test.bcf -g /data/chr21.fa /data/test.bam
+```
+
+ `delly` should manage to call a known tandem duplication in this example dataset. But more importantly, we've managed to install and run the tool in a relatively painless manner. If you look in the example directory you should find a `test.bcf` output file. You can convert and view this in the more-common (and human readable) VCF format using the `bcftools` utility available as part of SAMtools. But what if we don't have `samtools` installed? Well, luckily the `delly` container also contains a version of `samtools` and `bcftools`
+
+
+***Exercise***: run `bcftools` from inside the delly container to view the contents of the `test.bcf` file output by `delly`. 
+
+HINT `bcftools view` can be used to print a bcf file in human readable form.
+
+
+## Running the latest version of Bioconductor
+
+The Bioconductor team now distribute various docker containers that are built-upon the [rocker](https://github.com/rocker-org/rocker) project. This is a convenient way of running an R instance with the latest (or an older version if you prefer) versions of particular packages installed. It is also possible to run such containers in a *Cloud* environment such as Amazon. Various flavous of container are available as described on the [Bioconductor website](http://bioconductor.org/help/docker/). For example there are pre-built containers containing sequencing, proteomics, flow cytometry packages.
+
+To run such a container, we can use the following. Here the `-p` argument is to open a port with a particular address. 
+
+```{bash,eval=FALSE}
+docker run -p 8787:8787 bioconductor/release_base
+```
+
+We if we open a web browser and type the address`http://localhost:8787`, you should see a Rstudio server login page. The username and password are both `rstudio`. After login you will have a fully-functioning RStudio instance inside your web browser. If you require a package you can use `install.packages` or `biocLite` in the usual fashion
+
+If you require command line R, rather than RStudio, you can do
+
+```{bash eval=FALSE}
+docker run -ti bioconductor/release_base R
+```
+
+Don't forget that if you want to save your results to the host machine you will need to mount a volume as we discussed above. 
+
+```{bash eval=FALSE}
+docker run -v `pwd`:/home/rstudio -ti bioconductor/release_base R
+```
+
+
+You could even release a docker container for the analysis of your paper, as [Stephen Eglen](https://sje30.github.io/) from DAMTP has done for his 2014 paper. Running this container will load RStudio with all the packages and scripts available. The implications for reproducibility are tremendous. 
+
+```{bash, eval=FALSE}
+docker run -d -p 8787:8787 sje30/waverepo
+```
+
+Building such an image is fairly painless, as one can extend the existing Bioconductor image to include your own packages and data. We will explore this in the following sections.
+
+## Running the developmental version of Bioconductor
+
+The Bioconductor project has a 6 month release-cycle and package authors are required to make sure that their package can be compiled and run with the latest version of R and other Bioconductor software. This process typically involves compiling the latest *developmental* (and potentially unstable) version of R. In the days before docker, this would mean getting the latest `.tar.gz` file from the CRAN repository, compiling and making on my desktop machine. With docker I can get the latest version onto machine without cluttering it up with lots of different R versions.
+
+
+```{bash, eval=FALSE}
+docker run -it bioconductor/devel_base R
+```
+
+
+## Entire pipelines as containers
+
+The Sanger institute have released their entire [cancer genome analysis pipeline](https://github.com/cancerit/cgpbox) via docker. This is part of an initiative with the Pan-Cancer genomes project and other major sequencing centres (Broad, DKFZ) are also committed to releasing software this way.
+
+For the end-user, it is a single command to install the software encompassing the entire pipeline. 
+
+```{bash eval=FALSE}
+docker pull quay.io/wtsicgp/cgp_in_a_box
+```
+
+Some configuration is required in order to run the pipeline on your own data. However, instructions to download and analyse a test dataset are included on the [website](https://github.com/cancerit/cgpbox)
+
+

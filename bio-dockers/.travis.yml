@@ -1,0 +1,36 @@
+sudo: required
+
+language: java
+
+services:
+    - docker
+
+before_install:
+    - docker build -t alexcoppe/fastqc fastqc/
+    - docker build -t alexcoppe/picard picard/
+    - docker build -t alexcoppe/mutect mutect/
+    - docker build -t alexcoppe/gatk gatk/
+    - docker build -t alexcoppe/samtools samtools/
+    - docker build -t alexcoppe/varscan varscan/
+    - docker build -t alexcoppe/fastx fastx-toolkit/
+    - docker build -t alexcoppe/fastx-toolkit-lite fastx-toolkit-lite/
+    - docker build -t alexcoppe/bwa bwa/
+    - docker build -t alexcoppe/snpeff snpeff/
+    - docker build -t alexcoppe/snpsift snpsift/
+    - docker build -t alexcoppe/bedtools bedtools/
+    - docker build -t alexcoppe/bamtools bamtools/
+
+script:
+    - docker run -it --rm alexcoppe/fastqc
+    - docker run -it --rm -v $(pwd):/data alexcoppe/picard SortVcf I=/data/test-data/sample.vcf O=/data/sorted.vcf 
+    - docker run -it --rm alexcoppe/mutect -h
+    - docker run -it --rm alexcoppe/gatk -h
+    - docker run -it --rm -v $(pwd):/data alexcoppe/samtools view /data/test-data/sample.bam seq2:450-550
+    - docker run -it --rm alexcoppe/varscan
+    - docker run -it --rm -v $(pwd):/data alexcoppe/fastx fastx_quality_stats -i /data/test-data/sample.fastq -o /data/stats.txt
+    - docker run -it --rm -v $(pwd):/data alexcoppe/fastx-toolkit-lite fastx_quality_stats -i /data/test-data/sample.fastq -o /data/stats.txt
+    - docker run -it --rm -v $(pwd):/data alexcoppe/bwa index /data/test-data/sample.fasta
+    - docker run -it --rm alexcoppe/snpeff eff -version
+    - docker run --rm -it alexcoppe/snpsift filter -version
+    - docker run --rm -it -v $(pwd):/data alexcoppe/bedtools intersectBed -a /data/test-data/sample.vcf -b /data/test-data/sample.vcf
+    - docker run --rm -it alexcoppe/bamtools
