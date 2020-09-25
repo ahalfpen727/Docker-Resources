@@ -1,6 +1,4 @@
-# Bioconductor Devel Docker image - DEPRECATED
-
-**Deprecation Notice** : The `bioconductor/bioconductor_full` images have been deprecated in favor of the new `bioconductor/bioconductor_docker` images located at https://github.com/bioconductor/bioconductor_docker . These new images will have the same functionality as `bioconductor_full`, and users should find it easy to switch between the new set of containers. Please refer to the [README.md](https://github.com/Bioconductor/bioconductor_docker/blob/master/README.md) of the new images for more information.
+# Bioconductor Devel Docker image
 
 Bioconductor Docker image with full set of system dependencies so that
 all Bioconductor packages can be installed.
@@ -132,31 +130,9 @@ This document assumes you have [docker][] installed. Please check
             -p 8788:8787                                \
             bioconductor/bioconductor_full:RELEASE_3_10
 
-## Issues in the devel image
-
-### Packages which will never install
-
-1. xps
-
-1. Rmpi
-
-1. ccfindR
-
-For more information on the issues for this image, please check
-`issues.md`
 
 
-## Singularity
-
-Bioconductor provides singularity hub images. The files Singularity, Singularity.RELEASE_3_8, Singularity.RELEASE_3_9 allow the images to build on Singularity hub.
-
-Find the singularity hub images, and download them by https://www.singularity-hub.org/collections/3154/usage
-
-    singularity pull shub://Bioconductor/bioconductor_full
-
-## Frequently Asked Questions (FAQ)
-
-### How do I use LaTeX inside the container?
+### using LaTeX inside the container?
 
 Install the `tinytex` package (https://yihui.name/tinytex/) which has helpers for installing LaTeX functionality.
 
