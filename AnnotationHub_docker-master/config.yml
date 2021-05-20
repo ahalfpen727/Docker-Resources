@@ -1,3 +1,0 @@
-mysql_url: "mysql2://hubuser:MYSQL_REMOTE_PASSWORD@db/annotationhub"
-sqlite_filename: "annotationhub.sqlite3"
-ahs_database_type: "mysql"
