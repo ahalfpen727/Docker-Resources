@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html class=" js no-mobile desktop no-ie ff ff88 revealjs_test-section w-1920 gt-240 gt-320 gt-480 gt-640 gt-768 gt-800 gt-1024 gt-1280 gt-1440 gt-1680 no-portrait landscape gradient rgba opacity textshadow multiplebgs boxshadow borderimage borderradius no-cssreflections csstransforms csstransitions no-touch no-retina fontface domloaded" id="docker_intro2-page"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="Docker.reveal.js_files/reveal.css">
+		<link rel="stylesheet" href="Docker.reveal.js_files/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="Docker.reveal.js_files/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script><link rel="stylesheet" type="text/css" href="Docker.reveal.js_files/paper.css"><script type="text/javascript" src="Docker.reveal.js_files/marked.js"></script><script type="text/javascript" src="Docker.reveal.js_files/markdown.js"></script><script type="text/javascript" src="Docker.reveal.js_files/notes.js"></script><script type="text/javascript" src="Docker.reveal.js_files/highlight.js"></script>
+	</head>
+	<body>
+		<div class="reveal default center" data-transition-speed="default">
+			<div class="slides" style="width: 960px; height: 700px; transform: translate(-50%, -50%) scale(0.9) translate(50%, 50%);">
+			
+				<section style="top: -120.5px; display: block;" class="present"> <h1>Docker</h1>
+					<h3>Docker for Beginners</h3>
+					<p>
+						<small>Created by Victoria Dominguez del Angel / <a href="http://twitter.com/vic_bioinfo" class="roll"><span data-title="@vic_bioinfo">@vic_bioinfo</span></a></small> </p></section>
+								
+				<section data-markdown="" data-markdown-parsed="true" style="top: -109px; display: block;" class="future"><h2 id="outline">Outline</h2>
+<ul>
+<li>What is Docker?</li>
+<li>Building an image</li>
+<li>BioShadock &amp; Orchestration</li>
+</ul>
+</section>
+
+				<section data-background="images/container_terminal.jpeg" style="top: -67.5px; display: block;" class="future">
+						<h2>What is Docker?</h2>
+						
+				</section>
+
+				<section data-markdown="" data-markdown-parsed="true" style="top: -109px; display: block;" class="future"><h2 id="docker-is-">Docker is:</h2>
+<ul>
+<li>Not a virtual machine system</li>
+<li>Linux container + Layered file-system + Abstract network</li>
+<li>It can run in a VM (or not)</li>
+</ul>
+</section>
+
+				<section data-markdown="" data-markdown-parsed="true" style="top: -78.5px; display: none;" class="future"><h2 id="vm-vs-container">VM vs Container</h2>
+<p><img src="Docker.reveal.js_files/container-vs-vm.png" alt="VM-based hosting vs Container-based hosting"></p>
+</section>
+
+				<section data-markdown="" data-markdown-parsed="true" style="top: -123px; display: none;" class="future"><h2 id="why-is-docker-nicer-than-vms">Why is docker nicer than VMs</h2>
+<ul>
+<li>Less overheads : isolation vs virtualization</li>
+<li>Layered FS: incremental diffs + common base images</li>
+<li>Nice command line based UX</li>
+<li>Simple reproducible builds and deployment</li>
+</ul>
+</section>
+
+				
+				<section data-markdown="" data-markdown-parsed="true" style="top: -143px; display: none;" class="future"><h2 id="images-and-layers">Images and Layers</h2>
+<ul>
+<li>ubuntu : 200 Mb</li>
+<li>ubuntu + R : 250 Mb</li>
+<li>ubuntu + matlab : 250 Mb</li>
+</ul>
+<p>All three: 300 Mb</p>
+</section>
+
+				<section data-markdown="" data-markdown-parsed="true" style="top: -137px; display: none;" class="future"><h2 id="getting-started-with-docker">Getting started with Docker</h2>
+<ul>
+<li>Host applications / services efficiently</li>
+<li>Fast developer environment setup</li>
+<li>Flexible build / Continuous Integration</li>
+<li>Quickly provision a compute cluster</li>
+<li>Reproducible science</li>
+</ul>
+</section>
+
+				<section data-markdown="" data-markdown-parsed="true" style="top: -147px; display: none;" class="future"><h2 id="getting-started-with-docker">Getting started with Docker</h2>
+<p><a href="https://docs.docker.com/engine/installation/" class="roll"><span data-title="https://docs.docker.com/engine/installation/">https://docs.docker.com/engine/installation/</span></a></p>
+<ul>
+<li>Windows: daemon in Linux with Hyper-V or Virtualbox</li>
+<li>OSX: daemon in Linux with xhyve or Virtualbox</li>
+<li>Linux: daemon on host without VM</li>
+<li>Cross-platform docker client binary</li>
+</ul>
+</section>
+
+				
+
+				<section data-markdown="" data-markdown-parsed="true" style="top: -78.5px; display: none;" class="future"><h2 id="hands-on">Hands On</h2>
+<p><img src="Docker.reveal.js_files/hands_on.png" alt="HandsOn"></p>
+</section>
+
+				<section data-markdown="" data-markdown-parsed="true" style="top: -133.5px; display: none;" class="future"><h2 id="ifb-cloud-use-ssh-key">IFB Cloud : Use SSH Key</h2>
+<pre><code class="hljs stylus">$ ls -la ~/<span class="hljs-selector-class">.ssh</span>
+</code></pre><pre><code class="hljs smalltalk"><span class="hljs-string">$ </span>ssh-keygen -t dsa
+</code></pre><pre><code class="hljs stylus">$ ls -la ~/<span class="hljs-selector-class">.ssh</span>
+</code></pre></section>
+
+				<section data-markdown="" data-markdown-parsed="true" style="top: -132px; display: none;" class="future"><h3 id="installing-in-a-centos">Installing in a centOS</h3>
+<pre><code class="hljs vim">$ curl -fsSL http<span class="hljs-variable">s:</span>//<span class="hljs-built_in">get</span>.docker.<span class="hljs-keyword">com</span>/ | <span class="hljs-keyword">sh</span>
+</code></pre><pre><code class="hljs stylus">$ systemctl enable docker<span class="hljs-selector-class">.service</span>
+</code></pre><pre><code class="hljs smalltalk"><span class="hljs-string">$ </span>systemctl start docker
+</code></pre></section>
+
+								
+				<section data-markdown="" data-markdown-parsed="true" style="top: -163px; display: none;" class="future"><h2 id="search-pull-run-and-more">Search, Pull, Run and more</h2>
+<pre><code class="hljs smalltalk"><span class="hljs-string">$ </span>docker search debian
+</code></pre><pre><code class="hljs smalltalk"><span class="hljs-string">$ </span>docker pull debian:jessie
+</code></pre><pre><code class="hljs stata">$ docker <span class="hljs-keyword">run</span> debian:jessie <span class="hljs-keyword">ls</span> -<span class="hljs-keyword">l</span>
+</code></pre><pre><code class="hljs smalltalk"><span class="hljs-string">$ </span>docker images
+<span class="hljs-string">$ </span>docker ps
+</code></pre></section>
+				
+				<section data-markdown="" data-markdown-parsed="true" style="top: -182px; display: none;" class="future"><h2 id="running-in-a-container">Running in a container</h2>
+<pre><code class="hljs mel">$ docker run --rm <span class="hljs-keyword">python</span>:<span class="hljs-number">3.5</span> <span class="hljs-keyword">python</span> -c <span class="hljs-string">"print(40 + 2)"</span>
+</code></pre><pre class="fragment" data-fragment-index="2"><code class="hljs groovy">Unable to find image <span class="hljs-string">'python:3.5'</span> locally
+<span class="hljs-string">latest:</span> Pulling from library/python
+<span class="hljs-symbol">
+357ea8c3d80b:</span> Already exists
+<span class="hljs-number">52</span><span class="hljs-string">befadefd24:</span> Pull complete
+<span class="hljs-number">3</span><span class="hljs-string">c0732d5313c:</span> Pull complete
+<span class="hljs-string">ceb711c7e301:</span> Downloading [=========&gt;
+] <span class="hljs-number">90.27</span> MB/<span class="hljs-number">129.7</span> MB
+<span class="hljs-number">4211</span><span class="hljs-string">bb537697:</span> Download complete
+<span class="hljs-number">71</span><span class="hljs-string">f9074c0739:</span> Download complete
+<span class="hljs-number">3e5349707036</span>: Download complete
+</code></pre> <!-- -->
+</section>
+				
+
+								
+				<section data-markdown="" data-markdown-parsed="true" style="top: -224.5px; display: none;" class="future"><h2 id="running-in-a-container">Running in a container</h2>
+<pre><code class="hljs groovy">$ docker run --rm <span class="hljs-string">python:</span><span class="hljs-number">3.5</span> python -c <span class="hljs-string">"print(40 + 2)"</span>
+
+Unable to find image <span class="hljs-string">'python:3.5'</span> locally
+<span class="hljs-string">latest:</span> Pulling from library/python
+<span class="hljs-symbol">
+
+357ea8c3d80b:</span> Already exists
+<span class="hljs-number">52</span><span class="hljs-string">befadefd24:</span> Pull complete
+<span class="hljs-number">3</span><span class="hljs-string">c0732d5313c:</span> Pull complete
+<span class="hljs-string">ceb711c7e301:</span> Pull complete
+<span class="hljs-number">4211</span><span class="hljs-string">bb537697:</span> Pull complete
+<span class="hljs-number">71</span><span class="hljs-string">f9074c0739:</span> Pull complete
+<span class="hljs-number">3e5349707036</span>: Pull complete
+<span class="hljs-string">Digest:</span> <span class="hljs-string">sha256:</span>a755ad5a30b2[...]
+<span class="hljs-string">Status:</span> Downloaded newer image <span class="hljs-keyword">for</span> <span class="hljs-string">python:</span><span class="hljs-number">3.5</span>
+<span class="hljs-number">42</span>
+</code></pre><pre class="fragment" data-fragment-index="2"><code class="hljs mel">$ docker run --rm <span class="hljs-keyword">python</span>:<span class="hljs-number">3.5</span> <span class="hljs-keyword">python</span> -c <span class="hljs-string">"print(40 + 3)"</span>
+<span class="hljs-number">43</span>
+</code></pre> <!-- -->
+</section>
+
+				<section data-markdown="" data-markdown-parsed="true" style="top: -182px; display: none;" class="future"><h2 id="interactive-sessions">Interactive sessions</h2>
+<pre><code class="hljs elixir"><span class="hljs-variable">$ </span>docker run --rm -ti <span class="hljs-symbol">python:</span><span class="hljs-number">3.5</span> bash
+root<span class="hljs-variable">@10d2dfedb935</span><span class="hljs-symbol">:/</span><span class="hljs-comment"># ps</span>
+PID TTY   TIME  CMD
+<span class="hljs-number">1</span> ?  <span class="hljs-number">00</span><span class="hljs-symbol">:</span><span class="hljs-number">00</span><span class="hljs-symbol">:</span><span class="hljs-number">00</span> bash
+<span class="hljs-number">8</span> ?  <span class="hljs-number">00</span><span class="hljs-symbol">:</span><span class="hljs-number">00</span><span class="hljs-symbol">:</span><span class="hljs-number">00</span> ps
+</code></pre><pre class="fragment" data-fragment-index="2"><code class="hljs ruby">root@10d2dfedb935<span class="hljs-symbol">:/</span><span class="hljs-comment"># python</span>
+Python <span class="hljs-number">3.5</span>.<span class="hljs-number">2</span> (default, Aug  <span class="hljs-number">9</span> <span class="hljs-number">2016</span>, <span class="hljs-number">20</span><span class="hljs-symbol">:</span><span class="hljs-number">58</span><span class="hljs-symbol">:</span><span class="hljs-number">38</span>)
+[GCC <span class="hljs-number">4.9</span>.<span class="hljs-number">2</span>] on linux
+<span class="hljs-meta">&gt;&gt;</span>&gt; <span class="hljs-number">40</span> + <span class="hljs-number">2</span>
+<span class="hljs-number">42</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; ^D
+root@10d2dfedb935<span class="hljs-symbol">:/</span><span class="hljs-comment"># exit</span>
+</code></pre><!-- -->
+</section>
+
+				<section data-markdown="" data-markdown-parsed="true" style="top: -137.5px; display: none;" class="future"><h3 id="inspect-containers">Inspect Containers</h3>
+<pre><code class="hljs elixir"><span class="hljs-variable">$ </span>docker ps   <span class="hljs-comment">#shows running containers</span>
+<span class="hljs-variable">$ </span>docker inspect   <span class="hljs-comment">#info on a container (incl. IP address)</span>
+<span class="hljs-variable">$ </span>docker logs   <span class="hljs-comment">#gets logs from container</span>
+<span class="hljs-variable">$ </span>docker events   <span class="hljs-comment">#gets events from container</span>
+<span class="hljs-variable">$ </span>docker port   <span class="hljs-comment">#shows public facing port of container</span>
+<span class="hljs-variable">$ </span>docker top   <span class="hljs-comment">#shows running processes in container</span>
+<span class="hljs-variable">$ </span>docker diff   <span class="hljs-comment">#shows changed files in container's FS</span>
+<span class="hljs-variable">$ </span>docker stats   <span class="hljs-comment">#shows metrics, memory, cpu, filsystem</span>
+</code></pre></section>
+
+				
+				<section data-markdown="" data-markdown-parsed="true" style="top: -116px; display: none;" class="future"><h3 id="more-containers">More Containers</h3>
+<pre><code class="hljs applescript">$ docker <span class="hljs-built_in">run</span> -<span class="hljs-keyword">it</span> <span class="hljs-comment">--rm ubuntu # Run a container interactively </span>
+
+$ docker <span class="hljs-built_in">run</span> -d hadoop  <span class="hljs-comment"># Run a container in the background </span>
+
+$ docker <span class="hljs-built_in">run</span> -p <span class="hljs-number">80</span> nginx  <span class="hljs-comment">#Publish container port 80 on a random port</span>
+</code></pre></section>
+
+				
+				<section data-markdown="" data-markdown-parsed="true" style="top: -88px; display: none;" class="future"><h3 id="a-real-life-example-or-bend-it-like-bj-rn">A real-life example or Bend it like Björn</h3>
+<pre><code class="hljs stylus"><span class="hljs-variable">$docker</span> run -d -<span class="hljs-selector-tag">p</span> <span class="hljs-number">80</span>:<span class="hljs-number">80</span> -<span class="hljs-selector-tag">p</span> <span class="hljs-number">8021</span>:<span class="hljs-number">21</span> bgruening/galaxy-stable
+</code></pre></section>
+
+				
+				<section data-background="images/building_images.jpeg" style="top: -67.5px; display: none;" class="future">
+				  <h2>Building an image</h2>
+				  
+				</section>
+
+
+				<section data-markdown="" data-markdown-parsed="true" style="top: -125px; display: none;" class="future"><h2 id="getting-started-dockerfile">Getting started dockerfile</h2>
+<pre><code class="hljs dockerfile"><span class="hljs-keyword">FROM</span> ubuntu:<span class="hljs-number">16.04</span>
+
+<span class="hljs-keyword">MAINTAINER</span> Victoria Dominguez del Angel  &lt;vdbohler@gmail.com&gt;
+
+<span class="hljs-keyword">RUN</span> <span class="bash">apt-get update -y
+</span><span class="hljs-keyword">RUN</span> <span class="bash">apt-get install curl -y &amp;&amp; apt-get install vim -y
+</span></code></pre></section>
+
+				<section data-markdown="" data-markdown-parsed="true" style="top: -78.5px; display: none;" class="future"><h2 id="docker-file">Docker file</h2>
+<p>   <img src="Docker.reveal.js_files/code_dockerFile.png" alt="Docker file"></p>
+</section>
+				
+				<section data-markdown="" data-markdown-parsed="true" style="top: -160px; display: none;" class="future"><h2 id="docker-build">Docker build</h2>
+<pre><code class="hljs haml">$ docker build -t vdda/distributed .
+Sending build context to Docker daemon 178.2 kB
+Step 1 : FROM ubuntu:16.04
+-<span class="ruby">--&gt; <span class="hljs-number">1</span>b01529cc499
+</span>Step 2 : MAINTAINER Victoria Dominguez del Angel  &lt;vdbohler@gmail.com&gt;
+-<span class="ruby">--&gt; Using cache
+</span>-<span class="ruby">--&gt; <span class="hljs-number">37887</span>ee139f1
+</span>Step 3 : RUN apt-get install curl -y &amp;&amp; apt-get install vim -y
+-<span class="ruby">--&gt; Using cache
+</span>-<span class="ruby">--&gt; <span class="hljs-number">3</span>c2b8caccb8<span class="hljs-number">0</span>
+</span> [...]
+</code></pre></section>
+
+				     
+				
+				<section data-markdown="" data-markdown-parsed="true" style="top: -172.5px; display: none;" class="future"><h3 id="docker-build-amp-docker-push">Docker build &amp; docker push</h3>
+<pre><code class="hljs applescript">$ docker build -t vdda/distributed .
+Sending build context <span class="hljs-keyword">to</span> Docker daemon <span class="hljs-number">178.2</span> kB
+Step <span class="hljs-number">1</span> : FROM ubuntu:<span class="hljs-number">16.04</span>
+<span class="hljs-comment">---&gt; 1b01529cc499</span>
+Step <span class="hljs-number">2</span> : MAINTAINER Victoria Dominguez  &lt;vdbohler@gmail.com&gt; 
+ <span class="hljs-comment">---&gt; Using cache</span>
+ <span class="hljs-comment">---&gt; 37887ee139f1</span>
+ Step <span class="hljs-number">3</span> : RUN apt-<span class="hljs-keyword">get</span> install curl -y &amp;&amp; apt-<span class="hljs-keyword">get</span> install vim -y
+ <span class="hljs-comment">---&gt; Using cache</span>
+ <span class="hljs-comment">---&gt; 3c2b8caccb80</span>
+
+ $ docker <span class="hljs-built_in">run</span> <span class="hljs-comment">--rm vdda/distributed ls</span>
+ $ docker push vdda/distributed
+</code></pre></section>
+				     
+
+				<section data-markdown="" data-markdown-parsed="true" style="top: -78.5px; display: none;" class="future"><h2 id="docker-on-the-ifb-cloud">Docker on the IFB Cloud</h2>
+<p><img src="Docker.reveal.js_files/docker_ifb.png" alt="Architecture of Docker"></p>
+</section>
+
+				
+				<section data-markdown="" data-markdown-parsed="true" style="top: -316.5px; display: block;" class="future"><h2 id="docker-on-the-ifb-cloud">Docker on the IFB Cloud</h2>
+<p><img src="Docker.reveal.js_files/docker_ifb2.png" alt="Architecture of Docker"></p>
+</section>
+
+				<section data-background="images/orchestration.jpg" style="top: -67.5px; display: block;" class="future">
+				  <h2>Orchestration</h2>
+				  
+				</section>
+				
+				<section data-markdown="" data-markdown-parsed="true" style="top: -243px; display: block;" class="future"><h3 id="orchestration-tools">Orchestration tools</h3>
+<p><img src="Docker.reveal.js_files/orchestration2.png" alt="Architectecture Orchestration"></p>
+</section>
+
+
+			</div>
+		<div class="progress" style="display: block;"><span style="width: 0px;"></span></div><aside class="controls" style="display: block;"><div class="navigate-left"></div><div class="navigate-right enabled"></div><div class="navigate-up"></div><div class="navigate-down"></div></aside><div class="state-background"></div><div class="pause-overlay"></div></div>
+
+		<script src="Docker.reveal.js_files/head.js"></script>
+		<script src="Docker.reveal.js_files/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	
+
+<script>mendeleyWebImporter = {
+  downloadPdfs(t) { return this._call('downloadPdfs', [t]); },
+  open() { return this._call('open', []); },
+  _call(methodName, methodArgs) {
+    const id = Math.random();
+    window.postMessage({ id, token: '0.5604009747222853', methodName, methodArgs }, 'https://vdda.github.io');
+    return new Promise(resolve => {
+      const listener = window.addEventListener('message', event => {
+        const data = event.data;
+        if (typeof data !== 'object' || !('result' in data) || data.id !== id) return;
+        window.removeEventListener('message', listener);
+        resolve(data.result);
+      });
+    });
+  }
+};</script></body></html>

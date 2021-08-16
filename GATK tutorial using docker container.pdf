@@ -1,0 +1,396 @@
+%PDF-1.3
+1 0 obj
+<< /Type /Catalog
+/Outlines 2 0 R
+/Pages 3 0 R >>
+endobj
+2 0 obj
+<< /Type /Outlines /Count 0 >>
+endobj
+3 0 obj
+<< /Type /Pages
+/Kids [6 0 R
+22 0 R
+24 0 R
+]
+/Count 3
+/Resources <<
+/ProcSet 4 0 R
+/Font << 
+/F1 8 0 R
+/F2 9 0 R
+/F3 10 0 R
+/F4 11 0 R
+/F5 26 0 R
+>>
+>>
+/MediaBox [0.000 0.000 595.280 841.890]
+ >>
+endobj
+4 0 obj
+[/PDF /Text ]
+endobj
+5 0 obj
+<<
+/Creator (DOMPDF)
+/CreationDate (D:20190313091628+00'00')
+/ModDate (D:20190313091628+00'00')
+>>
+endobj
+6 0 obj
+<< /Type /Page
+/Parent 3 0 R
+/Annots [ 12 0 R 14 0 R 16 0 R 18 0 R 20 0 R ]
+/Contents 7 0 R
+>>
+endobj
+7 0 obj
+<<
+/Length 5113 >>
+stream
+
+0.000 0.000 0.000 rg
+BT 34.016 768.985 Td /F1 24.0 Tf  [(GATK tutorial using docker container)] TJ ET
+BT 34.016 733.859 Td /F1 14.0 Tf  [(Description)] TJ ET
+BT 34.016 705.078 Td /F3 12.0 Tf  [(GATK)] TJ ET
+BT 64.688 705.078 Td /F2 12.0 Tf  [(: GATK4 toolkit offers a wide variety of tools with a primary focus on variant discovery and )] TJ ET
+BT 34.016 690.822 Td /F2 12.0 Tf  [(genotyping. The content on this page is borrowed from GATK webpages/courses. To get familiar with )] TJ ET
+BT 34.016 676.566 Td /F2 12.0 Tf  [(GATK tools, you can read the following:)] TJ ET
+0.000 0.000 0.000 RG
+57.816 651.375 m 
+57.816 651.925 57.589 652.471 57.201 652.860 c
+56.812 653.248 56.266 653.475 55.716 653.475 c
+55.166 653.475 54.620 653.248 54.231 652.860 c
+53.842 652.471 53.616 651.925 53.616 651.375 c
+53.616 650.825 53.842 650.279 54.231 649.890 c
+54.620 649.501 55.166 649.275 55.716 649.275 c
+56.266 649.275 56.812 649.501 57.201 649.890 c
+57.589 650.279 57.816 650.825 57.816 651.375 c f
+BT 64.016 648.270 Td /F2 12.0 Tf  [(Read the overview of GATK4 : )] TJ ET
+0.000 0.000 0.800 rg
+BT 218.648 648.270 Td /F2 12.0 Tf  [(https://software.broadinstitute.org/gatk/gatk4)] TJ ET
+0.000 0.000 0.800 RG
+0.6 w 0 J [  ] 0 d
+218.648 645.570 m 435.308 645.570 l S
+0.000 0.000 0.000 rg
+0.000 0.000 0.000 RG
+57.816 637.119 m 
+57.816 637.669 57.589 638.215 57.201 638.604 c
+56.812 638.992 56.266 639.219 55.716 639.219 c
+55.166 639.219 54.620 638.992 54.231 638.604 c
+53.842 638.215 53.616 637.669 53.616 637.119 c
+53.616 636.569 53.842 636.023 54.231 635.634 c
+54.620 635.245 55.166 635.019 55.716 635.019 c
+56.266 635.019 56.812 635.245 57.201 635.634 c
+57.589 636.023 57.816 636.569 57.816 637.119 c f
+BT 64.016 634.014 Td /F2 12.0 Tf  [(Quick start guide: )] TJ ET
+0.000 0.000 0.800 rg
+BT 153.008 634.014 Td /F2 12.0 Tf  [(https://software.broadinstitute.org/gatk/documentation/quickstart)] TJ ET
+0.000 0.000 0.800 RG
+0.6 w 0 J [  ] 0 d
+153.008 631.314 m 464.996 631.314 l S
+0.000 0.000 0.000 rg
+0.000 0.000 0.000 RG
+57.816 622.863 m 
+57.816 623.413 57.589 623.959 57.201 624.348 c
+56.812 624.736 56.266 624.963 55.716 624.963 c
+55.166 624.963 54.620 624.736 54.231 624.348 c
+53.842 623.959 53.616 623.413 53.616 622.863 c
+53.616 622.313 53.842 621.767 54.231 621.378 c
+54.620 620.989 55.166 620.763 55.716 620.763 c
+56.266 620.763 56.812 620.989 57.201 621.378 c
+57.589 621.767 57.816 622.313 57.816 622.863 c f
+BT 64.016 619.758 Td /F2 12.0 Tf  [(Presentation materials: )] TJ ET
+0.000 0.000 0.800 rg
+BT 176.672 619.758 Td /F2 12.0 Tf  [(https://software.broadinstitute.org/gatk/documentation/presentations)] TJ ET
+0.000 0.000 0.800 RG
+0.6 w 0 J [  ] 0 d
+176.672 617.058 m 504.656 617.058 l S
+0.000 0.000 0.000 rg
+0.000 0.000 0.000 RG
+57.816 608.607 m 
+57.816 609.157 57.589 609.703 57.201 610.092 c
+56.812 610.480 56.266 610.707 55.716 610.707 c
+55.166 610.707 54.620 610.480 54.231 610.092 c
+53.842 609.703 53.616 609.157 53.616 608.607 c
+53.616 608.057 53.842 607.511 54.231 607.122 c
+54.620 606.733 55.166 606.507 55.716 606.507 c
+56.266 606.507 56.812 606.733 57.201 607.122 c
+57.589 607.511 57.816 608.057 57.816 608.607 c f
+BT 64.016 605.502 Td /F2 12.0 Tf  [(Best Practices workflows : )] TJ ET
+0.000 0.000 0.800 rg
+BT 195.332 605.502 Td /F2 12.0 Tf  [(https://software.broadinstitute.org/gatk/best-practices/)] TJ ET
+0.000 0.000 0.800 RG
+0.6 w 0 J [  ] 0 d
+195.332 602.802 m 454.640 602.802 l S
+0.000 0.000 0.000 rg
+BT 34.016 575.267 Td /F1 14.0 Tf  [(Download GATK container from Dockerhub)] TJ ET
+BT 34.016 546.371 Td /F4 12.0 Tf  [(docker pull broadinstitute/gatk:latest)] TJ ET
+BT 34.016 517.931 Td /F2 12.0 Tf  [(or with some specific-version information )] TJ ET
+BT 34.016 505.091 Td /F4 12.0 Tf  [(docker pull broadinstitute/gatk:4.0.11.0)] TJ ET
+BT 34.016 475.217 Td /F1 14.0 Tf  [(Run GATK container)] TJ ET
+BT 34.016 447.881 Td /F4 12.0 Tf  [(docker run -it broadinstitute/gatk:latest)] TJ ET
+BT 34.016 418.008 Td /F1 14.0 Tf  [(Run a GATK command inside the container)] TJ ET
+BT 34.016 390.671 Td /F4 12.0 Tf  [(./gatk --list)] TJ ET
+BT 34.016 360.798 Td /F1 14.0 Tf  [(The general format for GATK commands is)] TJ ET
+BT 34.016 332.017 Td /F2 12.0 Tf  [(gatk ToolName [tool args])] TJ ET
+BT 34.016 301.782 Td /F1 14.0 Tf  [(Exit from the container)] TJ ET
+BT 34.016 274.446 Td /F4 12.0 Tf  [(ctrl+p then ctrl+q)] TJ ET
+BT 34.016 244.573 Td /F1 14.0 Tf  [(Download example data to local folder)] TJ ET
+BT 34.016 215.792 Td /F2 12.0 Tf  [(wget )] TJ ET
+0.000 0.000 0.800 rg
+BT 60.344 215.792 Td /F2 12.0 Tf  [(https://object.pouta.csc.fi/Softwares/data.zip)] TJ ET
+0.6 w 0 J [  ] 0 d
+60.344 213.092 m 273.656 213.092 l S
+0.000 0.000 0.000 rg
+BT 34.016 185.557 Td /F1 14.0 Tf  [(Start running gatk container and mount the location of the data bundle inside the )] TJ ET
+BT 34.016 168.878 Td /F1 14.0 Tf  [(docker container)] TJ ET
+BT 34.016 141.541 Td /F4 12.0 Tf  [(docker run -v /path/gatk_data:/gatk/data -it broadinstitute/gatk:latest)] TJ ET
+BT 34.016 111.668 Td /F1 14.0 Tf  [(Get usage information for a GATK command)] TJ ET
+BT 34.016 84.332 Td /F4 12.0 Tf  [(gatk HaplotypeCaller --help)] TJ ET
+endstream
+endobj
+8 0 obj
+<< /Type /Font
+/Subtype /Type1
+/Name /F1
+/BaseFont /Times-Bold
+/Encoding /WinAnsiEncoding
+>>
+endobj
+9 0 obj
+<< /Type /Font
+/Subtype /Type1
+/Name /F2
+/BaseFont /Times-Roman
+/Encoding /WinAnsiEncoding
+>>
+endobj
+10 0 obj
+<< /Type /Font
+/Subtype /Type1
+/Name /F3
+/BaseFont /Times-Italic
+/Encoding /WinAnsiEncoding
+>>
+endobj
+11 0 obj
+<< /Type /Font
+/Subtype /Type1
+/Name /F4
+/BaseFont /Courier
+/Encoding /WinAnsiEncoding
+>>
+endobj
+12 0 obj
+<< /Type /Annot
+/Subtype /Link
+/A 13 0 R
+/Border [0 0 0]
+/H /I
+/Rect [ 218.6477 647.1899 435.3077 659.0699 ]
+>>
+endobj
+13 0 obj
+<< /Type /Action
+/S /URI
+/URI (https://software.broadinstitute.org/gatk/gatk4)
+>>
+endobj
+14 0 obj
+<< /Type /Annot
+/Subtype /Link
+/A 15 0 R
+/Border [0 0 0]
+/H /I
+/Rect [ 153.0077 632.9339 464.9957 644.8139 ]
+>>
+endobj
+15 0 obj
+<< /Type /Action
+/S /URI
+/URI (https://software.broadinstitute.org/gatk/documentation/quickstart)
+>>
+endobj
+16 0 obj
+<< /Type /Annot
+/Subtype /Link
+/A 17 0 R
+/Border [0 0 0]
+/H /I
+/Rect [ 176.6717 618.6779 504.6557 630.5579 ]
+>>
+endobj
+17 0 obj
+<< /Type /Action
+/S /URI
+/URI (https://software.broadinstitute.org/gatk/documentation/presentations)
+>>
+endobj
+18 0 obj
+<< /Type /Annot
+/Subtype /Link
+/A 19 0 R
+/Border [0 0 0]
+/H /I
+/Rect [ 195.3317 604.4219 454.6397 616.3019 ]
+>>
+endobj
+19 0 obj
+<< /Type /Action
+/S /URI
+/URI (https://software.broadinstitute.org/gatk/best-practices/)
+>>
+endobj
+20 0 obj
+<< /Type /Annot
+/Subtype /Link
+/A 21 0 R
+/Border [0 0 0]
+/H /I
+/Rect [ 60.3437 214.7119 273.6557 226.5919 ]
+>>
+endobj
+21 0 obj
+<< /Type /Action
+/S /URI
+/URI (https://object.pouta.csc.fi/Softwares/data.zip)
+>>
+endobj
+22 0 obj
+<< /Type /Page
+/Parent 3 0 R
+/Contents 23 0 R
+>>
+endobj
+23 0 obj
+<<
+/Length 3298 >>
+stream
+
+0.000 0.000 0.000 rg
+0.000 0.000 0.800 RG
+0.6 w 0 J [  ] 0 d
+BT 34.016 780.491 Td /F1 14.0 Tf  [(Run HaplotypeCaller)] TJ ET
+BT 34.016 751.595 Td /F4 12.0 Tf  [(gatk HaplotypeCaller -R data/ref/ref.fasta -I data/bams/mother.bam \\)] TJ ET
+BT 34.016 738.755 Td /F4 12.0 Tf  [(-O data/sandbox/variants.vcf)] TJ ET
+BT 34.016 708.881 Td /F1 14.0 Tf  [(Add JVM options to the command)] TJ ET
+BT 34.016 679.985 Td /F4 12.0 Tf  [(gatk --java-options "-Xmx4G" HaplotypeCaller \\)] TJ ET
+BT 34.016 665.585 Td /F4 12.0 Tf  [(-R data/ref/ref.fasta -I data/bams/mother.bam \\)] TJ ET
+BT 34.016 652.745 Td /F4 12.0 Tf  [(-O data/sandbox/variants.vcf)] TJ ET
+BT 34.016 622.871 Td /F1 14.0 Tf  [(Run GVCF workflow tools using HaplotypeCaller, GenomicsDBImport and then )] TJ ET
+BT 34.016 606.192 Td /F1 14.0 Tf  [(GenotypeGVCFs to perform joint calling on multiple input samples.)] TJ ET
+BT 34.016 575.472 Td /F1 14.0 Tf  [(Run HaplotypeCaller on three input bams \(mother, father, son\))] TJ ET
+BT 34.016 548.136 Td /F4 12.0 Tf  [(gatk HaplotypeCaller -R data/ref/ref.fasta -I data/bams/mother.bam -O )] TJ ET
+BT 34.016 535.686 Td /F4 12.0 Tf  [(data/sandbox/mother.g.vcf -ERC GVCF)] TJ ET
+BT 34.016 509.195 Td /F4 12.0 Tf  [(gatk HaplotypeCaller -R data/ref/ref.fasta -I data/bams/father.bam -O )] TJ ET
+BT 34.016 496.745 Td /F4 12.0 Tf  [(data/sandbox/father.g.vcf -ERC GVCF)] TJ ET
+BT 34.016 470.255 Td /F4 12.0 Tf  [(gatk HaplotypeCaller -R data/ref/ref.fasta -I data/bams/son.bam -O )] TJ ET
+BT 34.016 457.805 Td /F4 12.0 Tf  [(data/sandbox/son.g.vcf -ERC GVCF)] TJ ET
+BT 34.016 427.931 Td /F1 14.0 Tf  [(Run GenomicsDBImport on three GVCFs to consolidate)] TJ ET
+BT 34.016 399.035 Td /F4 12.0 Tf  [(gatk GenomicsDBImport -V data/sandbox/mother.g.vcf \\)] TJ ET
+BT 34.016 384.635 Td /F4 12.0 Tf  [(-V data/sandbox/father.g.vcf \\)] TJ ET
+BT 34.016 370.235 Td /F4 12.0 Tf  [(-V data/sandbox/son.g.vcf --genomicsdb-workspace-path \\)] TJ ET
+BT 34.016 357.395 Td /F4 12.0 Tf  [(data/sandbox/trio.gdb_workspace --intervals 20)] TJ ET
+BT 34.016 327.521 Td /F1 14.0 Tf  [(Alternatively, use CombinedGVCFs command as an alternative to GenomicsDBImport)] TJ ET
+BT 34.016 298.625 Td /F4 12.0 Tf  [(gatk CombineGVCFs -R data/ref/ref.fasta \\)] TJ ET
+BT 34.016 284.225 Td /F4 12.0 Tf  [(-V data/sandbox/father.g.vcf \\)] TJ ET
+BT 34.016 269.825 Td /F4 12.0 Tf  [(-V data/sandbox/mother.g.vcf -V data/sandbox/son.g.vcf \\)] TJ ET
+BT 34.016 256.985 Td /F4 12.0 Tf  [(-O data/sandbox/combine_trio_variants.vcf)] TJ ET
+BT 34.016 227.112 Td /F1 14.0 Tf  [(Run GenotypeGVCFs on the GDB workspace to produce final multisample VCF)] TJ ET
+BT 34.016 198.216 Td /F4 12.0 Tf  [(gatk GenotypeGVCFs -R data/ref/ref.fasta \\)] TJ ET
+BT 34.016 183.816 Td /F4 12.0 Tf  [(-V gendb://data/sandbox/trio.gdb_workspace \\)] TJ ET
+BT 34.016 169.416 Td /F4 12.0 Tf  [(-G StandardAnnotation -O data/sandbox/trio_variants.vcf)] TJ ET
+BT 34.016 139.152 Td /F1 14.0 Tf  [(Run a command with local Spark multithreading)] TJ ET
+BT 34.016 110.256 Td /F4 12.0 Tf  [(gatk --java-options "-Xmx6G" MarkDuplicatesSpark -R data/ref/ref.fasta \\)] TJ ET
+BT 34.016 95.856 Td /F4 12.0 Tf  [(-I data/bams/mother.bam -O data/sandbox/mother_dedup.bam \\)] TJ ET
+BT 34.016 83.016 Td /F4 12.0 Tf  [(-M data/sandbox/metrics.txt -- --spark-master local[*])] TJ ET
+endstream
+endobj
+24 0 obj
+<< /Type /Page
+/Parent 3 0 R
+/Contents 25 0 R
+>>
+endobj
+25 0 obj
+<<
+/Length 2019 >>
+stream
+
+0.000 0.000 0.000 rg
+0.000 0.000 0.800 RG
+0.6 w 0 J [  ] 0 d
+BT 34.016 780.491 Td /F1 14.0 Tf  [(delete all containers)] TJ ET
+BT 34.016 753.155 Td /F4 12.0 Tf  [(sudo docker rm `sudo docker ps --no-trunc -aq`)] TJ ET
+BT 34.016 726.664 Td /F4 12.0 Tf  [(docker ps -a | grep 'weeks ago' | awk '{print $1}' | xargs docker rm)] TJ ET
+BT 34.016 696.791 Td /F1 14.0 Tf  [(Delete stopped containers)] TJ ET
+BT 34.016 669.455 Td /F4 12.0 Tf  [(docker rm -v $\(docker ps -a -q -f status=exited\))] TJ ET
+BT 34.016 639.581 Td /F1 14.0 Tf  [(From inside container’s command prompt, detach and return to the host’s prompt.)] TJ ET
+BT 34.016 612.245 Td /F4 12.0 Tf  [(ctrl+p then ctrl+q)] TJ ET
+BT 34.016 582.371 Td /F1 14.0 Tf  [(Getting Docker Container's IP Address from host machine:)] TJ ET
+BT 34.016 555.035 Td /F4 12.0 Tf  [(docker inspect --format '{{ .NetworkSettings.IPAddress }}' $\(docker ps -)] TJ ET
+BT 34.016 542.585 Td /F4 12.0 Tf  [(q\))] TJ ET
+BT 34.016 512.711 Td /F1 14.0 Tf  [(Useful to know)] TJ ET
+BT 64.016 471.815 Td /F5 12.0 Tf  [(docker logs)] TJ ET
+BT 120.344 471.815 Td /F2 12.0 Tf  [( - gets logs from container )] TJ ET
+BT 64.016 457.415 Td /F5 12.0 Tf  [(docker events)] TJ ET
+BT 131.000 457.415 Td /F2 12.0 Tf  [( - gets events from container )] TJ ET
+BT 64.016 443.015 Td /F5 12.0 Tf  [(docker port)] TJ ET
+BT 120.344 443.015 Td /F2 12.0 Tf  [( - shows public facing port of container )] TJ ET
+BT 64.016 428.615 Td /F5 12.0 Tf  [(docker top)] TJ ET
+BT 115.676 428.615 Td /F2 12.0 Tf  [( - shows running processes in container )] TJ ET
+BT 64.016 414.215 Td /F5 12.0 Tf  [(docker stats)] TJ ET
+BT 122.348 414.215 Td /F2 12.0 Tf  [( - shows containers' resource usage statistics )] TJ ET
+BT 64.016 399.930 Td /F5 12.0 Tf  [(docker diff)] TJ ET
+BT 117.668 399.930 Td /F2 12.0 Tf  [( - shows changed files in the container's FS)] TJ ET
+BT 34.016 357.696 Td /F1 14.0 Tf  [(add user to docker group and type ID /check UID)] TJ ET
+BT 34.016 330.359 Td /F4 12.0 Tf  [(sudo usermod -aG docker $user)] TJ ET
+endstream
+endobj
+26 0 obj
+<< /Type /Font
+/Subtype /Type1
+/Name /F5
+/BaseFont /Times-BoldItalic
+/Encoding /WinAnsiEncoding
+>>
+endobj
+xref
+0 27
+0000000000 65535 f 
+0000000009 00000 n 
+0000000074 00000 n 
+0000000120 00000 n 
+0000000331 00000 n 
+0000000360 00000 n 
+0000000474 00000 n 
+0000000584 00000 n 
+0000005749 00000 n 
+0000005857 00000 n 
+0000005966 00000 n 
+0000006077 00000 n 
+0000006183 00000 n 
+0000006311 00000 n 
+0000006409 00000 n 
+0000006537 00000 n 
+0000006654 00000 n 
+0000006782 00000 n 
+0000006902 00000 n 
+0000007030 00000 n 
+0000007138 00000 n 
+0000007265 00000 n 
+0000007363 00000 n 
+0000007428 00000 n 
+0000010779 00000 n 
+0000010844 00000 n 
+0000012916 00000 n 
+trailer
+<<
+/Size 27
+/Root 1 0 R
+/Info 5 0 R
+>>
+startxref
+13031
+%%EOF
